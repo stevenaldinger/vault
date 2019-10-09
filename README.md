@@ -48,7 +48,7 @@ func main() {
 ### NodeJS
 
 ```js
-const vault = require('@aldinger/vault-auto')
+const vault = require('@aldinger/vault')
 
 const secrets = [
   'secret-engine/data/secret-name',
