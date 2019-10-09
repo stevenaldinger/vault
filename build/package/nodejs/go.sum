@@ -135,8 +135,8 @@ github.com/spf13/cobra v0.0.4/go.mod h1:3K3wKZymM7VvHMDS9+Akkh4K60UwM26emMESw8tL
 github.com/spf13/jwalterweatherman v1.0.0/go.mod h1:cQK4TGJAtQXfYWX+Ddv3mKDzgVb68N+wFjFa4jdeBTo=
 github.com/spf13/pflag v1.0.3/go.mod h1:DYY7MBk1bdzusC3SYhjObp+wFpr4gzcvqqNjLnInEg4=
 github.com/spf13/viper v1.3.2/go.mod h1:ZiWeW+zYFKm7srdB9IoDzzZXaJaI5eL9QjNiN/DMA2s=
-github.com/stevenaldinger/vault/pkg/vault v0.1.0 h1:zCa/RQIsdT0ocIpBGV1UbJI3t/eXJoKCjmTBgn6/9mU=
-github.com/stevenaldinger/vault/pkg/vault v0.1.0/go.mod h1:4L1JOe5kjOEquMAcPXPNqrfLLjHnIzD5kJkvY9m+AAs=
+github.com/stevenaldinger/vault/pkg/vault v0.1.1 h1:Ldudi+11ZBbF01014JXR0SXHJt2YgPi/CIPZekZ8Z0E=
+github.com/stevenaldinger/vault/pkg/vault v0.1.1/go.mod h1:4L1JOe5kjOEquMAcPXPNqrfLLjHnIzD5kJkvY9m+AAs=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
