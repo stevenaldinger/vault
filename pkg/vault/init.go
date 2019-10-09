@@ -10,6 +10,7 @@ var traceEnabled bool
 var tracePrefix string
 var project string
 var serviceAccount string
+var vaultRole string
 var environment string
 
 func initialize(ctx context.Context) {
