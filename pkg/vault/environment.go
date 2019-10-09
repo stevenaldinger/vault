@@ -26,6 +26,12 @@ func getConfigFromEnv(ctx context.Context) {
 		log.Fatal("Error occurred getting TRACE_PREFIX variable from environment.")
 	}
 
+	vaultRole = getEnv(ctx, "VAULT_ROLE", "")
+	log.Info("VAULT_ROLE=" + vaultRole)
+	if vaultRole == "" {
+		log.Fatal("You need to set the VAULT_ROLE environment variable")
+	}
+
 	// google injects this env var automatically in gcp environments
 	project = getEnv(ctx, "GCLOUD_PROJECT", "")
 	log.Info("GCLOUD_PROJECT=" + project)

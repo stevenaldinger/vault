@@ -5,7 +5,6 @@ import "C"
 import (
 	"context"
 	"github.com/stevenaldinger/vault/pkg/vault"
-	"os"
   "fmt"
   "encoding/json"
 )
@@ -23,9 +22,7 @@ func GetSecrets(secretNames *C.char) *C.char {
 			panic(err)
 		}
 
-    vaultRole := os.Getenv("VAULT_ROLE")
-
-    vault.GetSecrets(ctx, vaultRole, &env, envArr)
+    vault.GetSecrets(ctx, &env, envArr)
 
     secretData, err := json.Marshal(env)
     if err != nil {

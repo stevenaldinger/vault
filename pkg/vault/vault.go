@@ -92,7 +92,7 @@ func GetSecret(ctx context.Context, c *api.Client, secretName string) (map[strin
 }
 
 // GetSecrets fills a map with the values of secrets pulled from Vault.
-func GetSecrets(ctx context.Context, vaultRole string, secretValues *map[string]map[string]string, secretNames []string) {
+func GetSecrets(ctx context.Context, secretValues *map[string]map[string]string, secretNames []string) {
 	if traceEnabled {
 		_, span := trace.StartSpan(ctx, tracePrefix+"/GetSecrets")
 		defer span.End()
