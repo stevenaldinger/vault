@@ -19,7 +19,7 @@ type Secret struct {
   Secrets map[string]string
 }
 
-func ApplySecret(secret *Secret) {
+func ApplySecret(vaultSecret *Secret) {
 	var kubeconfig *string
 	if home := homedir.HomeDir(); home != "" {
 		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
@@ -41,7 +41,7 @@ func ApplySecret(secret *Secret) {
 
   secretData := map[string][]byte{}
 
-  for key, val := range secret.Secrets {
+  for key, val := range vaultSecret.Secrets {
     secretData[key] = []byte(val)
   }
 
