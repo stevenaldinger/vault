@@ -56,13 +56,12 @@ func ApplySecret(vaultSecret *Secret) {
   fmt.Println("Creating secret...")
   result, err := secretsClient.Create(secret)
   if err != nil {
-    // panic(err)
     fmt.Println("error, secret probably already exists", err)
   }
   fmt.Println(result)
 
   retryErr := retry.RetryOnConflict(retry.DefaultRetry, func() error {
-    // Retrieve the latest version of Deployment before attempting update
+    // Retrieve the latest version of Secret before attempting update
     // RetryOnConflict uses exponential backoff to avoid exhausting the apiserver
     result, getErr := secretsClient.Get("vault-secret", metav1.GetOptions{})
     if getErr != nil {

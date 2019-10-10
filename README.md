@@ -11,6 +11,7 @@
 | `TRACE_ENABLED`                  | `"false"`        | No             | No                            | `true`                                               | Whether or to enable `opencensus` tracing     |
 | `TRACE_PREFIX`                   | `"vault"`        | No             | No                            | `my-company`                                         | Prefix added to name of tracing spans         |
 | `VAULT_ADDR`                     | `""`             | Yes            | Yes                           | `https://vault.my-company.com`                       | Vault address including protocol              |
+| `VAULT_ROLE`                     | `""`             | Yes            | Yes                           | `vault-role-cloud-functions`                         | Name of role created in Vault for GCP auth    |
 
 ## Usage
 
@@ -35,9 +36,7 @@ var envArr = []string{
 func main() {
     ctx := context.Background()
 
-    // name of role created in Vault for GCP auth
-    vaultRole := "vault-role-cloud-functions"
-    vault.GetSecrets(ctx, vaultRole, &env, envArr)
+    vault.GetSecrets(ctx, &env, envArr)
 
     fmt.Println("Secret values:", env)
     fmt.Println("secret-key value = " + env["secret-engine/data/secret-name"]["secret-key"])
@@ -62,7 +61,21 @@ console.log(`secret-key value = ${secretData['secret-engine/data/secret-name']['
 console.log(`secret-key-2 value = ${secretData['secret-engine-2/data/another-secret-name']['secret-key-2']}`)
 ```
 
+## Google Cloud Auth Method
+
+Because this project uses the [Google Cloud auth method](https://www.vaultproject.io/api/auth/gcp/index.html) for Vault, you'll need to configure a role for the service account you're using. By default, for Google Cloud Functions that will be `<project-id>@appspot.gserviceaccount.com`. You can use the [Terraform example](./exampels/terraform/gcp-auth.tf) to get you started.
+
+## Kubernetes
+
+Integrating Vault with Kubernetes is easy to do with this project.
+
+There are examples of two different strategies.
+
+1. [Using an init container](./examples/kubernetes/vault-init) and a shared volume to write a secret to a `.env` file that your app can read in when it's container starts
+2. Running a [job](./examples/kubernetes/vault-k8s-secret/job.yaml) or [cronjob](./examples/kubernetes/vault-k8s-secret/cronjob.yaml) to sync Vault secrets with Kubernetes secrets that your deployments can read in like they would any other k8s secrets.
+
 # References
 
+- [Vault Google Cloud Auth](https://www.vaultproject.io/api/auth/gcp/index.html)
 - [node-8.16 v8 docs](https://v8docs.nodesource.com/node-8.16/)
 - [nodeaddons.com](https://nodeaddons.com/)
