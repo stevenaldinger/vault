@@ -1,3 +1,5 @@
+*_This repo is deprecated and is now maintained by [TeamSnap](https://www.teamsnap.com/) at [TeamSnap/vault-key](https://github.com/teamsnap/vault-key)._*
+
 # Vault integration with GCP for Golang, NodeJS, and Ruby
 
 This repo makes it easy to use Vault with GCP auth. It uses a GCP service account and JSON web tokens to login to Vault without a password. Then it retrieves the secrets you need and makes them available in your code, hassle free.
